@@ -6,6 +6,7 @@ import com.example.leaderboard.models.User;
 import com.example.leaderboard.repos.UserRepos;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -16,6 +17,10 @@ public class Controller {
         this.userRepos = userRepos;
     }
 
+    @GetMapping("/checkName")
+    public String check(@RequestParam String name){
+        return String.valueOf(userRepos.findAllByName(name).isEmpty());
+    }
     @PostMapping("/addUser")
     public void addUser(@RequestBody Request request){
         List<User> users = userRepos.findAllByName(request.name());
@@ -29,6 +34,8 @@ public class Controller {
     }
     @GetMapping("/getAll")
     public List<User> getAll(){
-        return userRepos.findAll();
+        List<User> list = userRepos.findByOrderByPoints();
+        Collections.reverse(list);
+        return list;
     }
 }

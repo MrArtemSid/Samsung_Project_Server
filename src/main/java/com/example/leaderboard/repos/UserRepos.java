@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserRepos extends JpaRepository<User, Long> {
     List<User> findAllByName(String name);
+    List<User> findByOrderByPoints();
 }
