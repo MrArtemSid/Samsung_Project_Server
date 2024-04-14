@@ -28,7 +28,7 @@ public class Controller {
             userRepos.save(new User(request.name(),request.point()));
         }
     }
-    @PostMapping("/updatePoint")
+    @PostMapping("/updatePoints")
     public void updatePoint(@RequestBody Request request){
         userRepos.save(new User(request.name(),request.point()));
     }
