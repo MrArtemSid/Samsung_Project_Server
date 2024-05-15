@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 COPY leaderboard.jar .
 
+EXPOSE 8072
 EXPOSE 8080
 CMD ["java", "-jar", "leaderboard.jar"]
 

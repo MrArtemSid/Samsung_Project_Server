@@ -17,7 +17,7 @@ services:
     image: samsung_server
     container_name: samsung_server
     ports:
-      - "8080:8080"
+      - "8072:8080"
     depends_on:
       - postgres_db
     env_file:
